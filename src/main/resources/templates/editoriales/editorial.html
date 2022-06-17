@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container-fluid" layout:fragment="page-content">            
+            <nav class="navbar navbar-light bg-light m-2">
+                <h4 class="ps-3"><i class="fa-solid fa-school me-2"></i>Ventas</h4>
+            </nav>
+            <div class="container" >
+            <button class="btn btn-danger mb-5"  data-toggle="modal" data-target="#modalGuardar1" data-whatever="@mdo">Agregar venta</button>
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered" id="tablita1">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">IDventa</th>
+                                <th scope="col">fecha</th>
+                                <th scope="col">idusuario</th>
+                                <th scope="col">idcliente</th>
+                                <th scope="col">idsucursal</th>
+                                <th scope="col">tipocomprobante</th>
+                                <th scope="col">seriecomprobante</th>
+                                <th scope="col">numerocomprobante</th>
+                                <th scope="col" colspan="2">ACCION</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          
+        </div>
+            <!-- Modal agregar Post -->
+            <div class="modal fade" id="modalGuardar1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nueva Venta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Fecha:</label>
+                                <input type="date" class="form-control" id="nombre" placeholder="Título" >
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">idusuario:</label>
+                                <textarea class="form-control" id="apellido"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">idcliente:</label>
+                                <textarea class="form-control" id="correo"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">idsucursal:</label>
+                                <textarea class="form-control" id="sucursal"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">tipocomprobante:</label>
+                                <textarea class="form-control" id="tipo"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">seriecomprobante:</label>
+                                <textarea class="form-control" id="serie"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">numerocomprobante:</label>
+                                <textarea class="form-control" id="numero"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="guardar1">Registrar Calzado</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Modificar Post -->
+        <div class="modal fade" id="modalEditar1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modificar Venta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Fecha:</label>
+                                <input type="text" class="form-control" id="editar_titulo" placeholder="Título">
+                                <input type="hidden" class="form-control" id="idpost" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">IdUsuario:</label>
+                                <textarea class="form-control" id="editar_descripcion"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">IdCliente:</label>
+                                <textarea class="form-control" id="editar_correo"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">IdSucursal:</label>
+                                <textarea class="form-control" id="editar_sucursal"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">tipocomprobante:</label>
+                                <textarea class="form-control" id="editar_tipo"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">seriecomprobante:</label>
+                                <textarea class="form-control" id="editar_serie"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">numerocomprobante:</label>
+                                <textarea class="form-control" id="editar_numero"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="modificar1">Modificar Venta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+        <script th:src="@{/js/lss.js}"></script>
+        
+         </div>
+        <!--OTRO SCRIPTS PARA PAGINAS-->
+    <th:block layout:fragment="page-scripts">
+
+    </th:block>
+    </body>
+</html>
